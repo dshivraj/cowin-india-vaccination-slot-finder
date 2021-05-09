@@ -1,4 +1,4 @@
-package com.vaccinefinder;
+package com.api;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.TimeZone;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -31,7 +32,7 @@ public class FindByDistrict {
 		// Setting the time zone
 		dateTimeInGMT.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-		ArrayList dateList = new ArrayList<>();
+		List dateList = new ArrayList<>();
 		dateList.add(dateTimeInGMT.format(new Date()).toString());
 		Date date;
 
@@ -77,11 +78,13 @@ public class FindByDistrict {
 
 				for (int centersListcnt = 0; centersListcnt < centersListFind.size(); centersListcnt++) {
 
-					
-					
-					Request request = new Request.Builder()
-							.url("https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id="
-									+ centersListFind.get(centersListcnt) + "&date=" + dateList.get(datelistit))
+//					Request request = new Request.Builder()
+//							.url("https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id="
+//									+ centersListFind.get(centersListcnt) + "&date=" + dateList.get(datelistit))
+//							.build(); // defaults to GET
+
+					Request request = new Request.Builder().url(
+							"https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=393&date=08-05-2021")
 							.build(); // defaults to GET
 
 					Response response;

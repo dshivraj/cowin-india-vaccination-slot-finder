@@ -1,4 +1,4 @@
-package com.vaccinefinder;
+package com.api;
 
 import java.io.IOException;
 import java.text.ParseException;
