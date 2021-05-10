@@ -7,7 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class robot {
+public class robotReopen {
 
 	public static void main(String[] args) throws Exception {
 		System.setProperty("webdriver.chrome.driver",
@@ -25,19 +25,15 @@ public class robot {
 
 		while (true) {
 
-			l_driver = new ChromeDriver();
-			l_driver.get(url);
-			l_driver.manage().window().maximize();
-
 			for (int i = 0; i < zipCodeList.size(); i++) {
 
 				System.out.println("#########   " + zipCodeList.get(i) + "   #########");
 
-				JavascriptExecutor js = (JavascriptExecutor) l_driver;
+				l_driver = new ChromeDriver();
+				l_driver.get(url);
+				l_driver.manage().window().maximize();
 
-				l_driver.findElement(By.xpath(
-						"/html/body/app-root/div/app-home/div[2]/div/appointment-table/div/div/div/div/div/div/div/div/div/div/div[2]/form/div/div/div[2]/div/input"))
-						.clear();
+				JavascriptExecutor js = (JavascriptExecutor) l_driver;
 
 				enterTextValue(
 						"/html/body/app-root/div/app-home/div[2]/div/appointment-table/div/div/div/div/div/div/div/div/div/div/div[2]/form/div/div/div[2]/div/input",
@@ -55,11 +51,11 @@ public class robot {
 						"/html/body/app-root/div/app-home/div[2]/div/appointment-table/div/div/div/div/div/div/div/div/div/div/div[2]/form/div/div/div[4]/div/div[4]/label",
 						l_driver);
 
-				js.executeScript("window.scrollBy(0,200)");
-				Thread.sleep(4000);
+				js.executeScript("window.scrollBy(0,400)");
+				Thread.sleep(2000);
+				l_driver.quit();
 
 			}
-			l_driver.quit();
 		}
 
 	}
