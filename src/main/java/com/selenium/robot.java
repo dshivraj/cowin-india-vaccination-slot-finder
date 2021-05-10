@@ -60,6 +60,7 @@ public class robot {
 
 			}
 			l_driver.quit();
+			Thread.sleep(60000);
 		}
 
 	}
